@@ -15,9 +15,10 @@ spec:
     spec:
       containers:
         - name: app-three
-          image: registry.k8s/io/echoserver:1.10
-          args:
-            - "-text=Hello from App3"
+          image: paulbouwer/hello-kubernetes:1.10
+          env:
+          - name: MESSAGE
+            value: "Hello from app3."
           ports:
             - containerPort: 8080
 ---

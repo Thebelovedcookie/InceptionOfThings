@@ -15,9 +15,10 @@ spec:
     spec:
       containers:
         - name: app-one
-          image: registry.k8s/io/echoserver:1.10
-          args:
-            - "-text=Hello from App1"
+          image: paulbouwer/hello-kubernetes:1.10
+          env:
+          - name: MESSAGE
+            value: "Hello from app1."
           ports:
             - containerPort: 8080
 ---
@@ -29,7 +30,7 @@ spec:
   selector:
     app: app-one
   ports:
-    - protocol:
+    - protocol: TCP
       port: 80
       targetPort: 8080
 

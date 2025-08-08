@@ -6,15 +6,6 @@ apt-get update -y
 #Install required packages
 apt-get install -y curl git apt-transport-https net-tools
 
-# #Install of kubectl
-# KUBECTL_VERSION=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
-# curl -LO https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl
-
-# chmod +x kubectl
-# sudo mv kubectl /usr/local/bin/
-
-# kubectl version --client
-
 ln -s /usr/local/bin/k3s /usr/local/bin/kubectl
 
 #Install of k3s
@@ -46,3 +37,7 @@ kubectl apply -f /etc/rancher/k3s/app2.yaml
 kubectl apply -f /etc/rancher/k3s/app3.yaml
 
 kubectl get all -A
+chmod 644 /etc/rancher/k3s/k3s.yaml
+chown vagrant /etc/rancher/k3s/k3s.yaml
+
+export KUBECONFIG=$HOME/.kube/config >> ~/.bashrc

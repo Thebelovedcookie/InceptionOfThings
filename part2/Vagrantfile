@@ -5,22 +5,29 @@
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
+
+# Vérifie si le plugin vagrant-vbguest est installé, sinon l'installe
+# required_plugins = ["vagrant-vbguest"]
+
+$script = <<SCRIPT
+echo I am provisioning...
+date > /etc/vagrant_provisioned_at
+SCRIPT
+
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/jammy64"
   config.vm.boot_timeout = 30000
+  config.vm.hostname = "mmahfoudS"
+  config.vm.synced_folder "./confs", "/vagrant_apps"
 
-  #Node Master (Controller)
-  config.vm.define "mmahfoudS" do |controller|
-    controller.vm.hostname = "mmahfoudS"
-    controller.vm.network "private_network", ip: "192.168.56.110"
-    controller.vm.synced_folder "./vagrant_apps", "/vagrant_apps"
-    # Customize the amount of memory on the VM:
-    controller.vm.provider "virtualbox" do |vb|
-      vb.memory = "2048"
-      vb.cpus = 2
-    end
-    
-    controller.vm.provision "shell", name: "configS", path: "configS.sh"
+  config.vm.network "private_network", ip: "192.168.56.110"
+
+  # Customize the amount of memory on the VM:
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "mmahfoudS"
+    vb.memory = "2048"
+    vb.cpus = 2
   end
-end
 
+  config.vm.provision "shell", name: "configS", path: "scripts/configS.sh"
+end

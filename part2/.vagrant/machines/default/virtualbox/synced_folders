@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant_apps":{"guestpath":"/vagrant_apps","hostpath":"/home/user/InceptionOfThings/part2/confs","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/user/InceptionOfThings/part2","disabled":false,"__vagrantfile":true}}}
