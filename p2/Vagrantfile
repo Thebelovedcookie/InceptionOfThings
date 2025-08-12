@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+
+# Vérifie si le plugin vagrant-vbguest est installé, sinon l'installe
+# required_plugins = ["vagrant-vbguest"]
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "debian/bookworm64"
+  config.vm.boot_timeout = 300
+  config.vm.hostname = "mmahfoudS"
+  config.vm.synced_folder "./confs", "/vagrant_apps"
+
+  config.vm.network "private_network", ip: "192.168.56.110"
+
+  # Customize the amount of memory on the VM:
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "mmahfoudS"
+    vb.memory = "2048"
+    vb.cpus = 2
+  end
+
+  config.vm.provision "shell", name: "configS", path: "scripts/configS.sh"
+end
