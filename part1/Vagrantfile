@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
     controller.vm.hostname = "mmahfoudS"
     controller.vm.network "private_network", ip: "192.168.56.110"
     # Customize the amount of memory on the VM:
+    # il se passe quoi si je met pas de memoire ou de cpus
     config.vm.provider "virtualbox" do |vb|
       vb.memory = "2048"
       vb.cpus = 2
