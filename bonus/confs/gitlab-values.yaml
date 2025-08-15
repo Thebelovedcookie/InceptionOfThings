@@ -1,0 +1,14 @@
+global:
+  edition: cd #community edition
+  hosts:
+    domain: local.gitlab
+    externalIP: 127.0.0.1
+  ingress:
+    configureCertmanager: false
+    enabled: false
+  nginx-ingress:
+    enabled: false
+  certmanager:
+    install: false
+  gitlab-runner:
+    install: true
