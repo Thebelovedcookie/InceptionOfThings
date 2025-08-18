@@ -1,0 +1,15 @@
+global:
+  hosts:
+    domain: "gitlab.local"
+    https: false
+    externalIP: "127.0.0.1"
+  ingress:
+    configureCertmanager: false
+    enabled: true
+    class: traefik
+
+certmanager:
+  install: false
+
+nginx-ingress:
+  enabled: false
