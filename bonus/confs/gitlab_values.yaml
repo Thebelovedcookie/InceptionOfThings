@@ -2,7 +2,7 @@ global:
   hosts:
     domain: "gitlab.local"
     https: false
-    externalIP: "127.0.0.1"
+    externalIP: "0.0.0.0"
   ingress:
     configureCertmanager: false
     enabled: true
@@ -13,3 +13,21 @@ certmanager:
 
 nginx-ingress:
   enabled: false
+
+gitlab:
+  sidekiq:
+    enabled: false
+  kas:
+    enabled: false
+  gitaly:
+    replicas: 1
+  webservice:
+    replicas: 1
+    
+resources:
+  requests:
+    memory: 256Mi
+    cpu: 100m
+  limits:
+    memory: 512Mi
+    cpu: 200m

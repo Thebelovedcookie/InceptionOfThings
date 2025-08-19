@@ -7,10 +7,12 @@ setup_gitlab:
 re : clean all
 
 get_password:
-	@echo "Password ArgoCD : $$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath='{.data.password}' | base64 -d)"
-
+	kubectl get secret gitlab-gitlab-initial-root-password -n gitlab -o jsonpath="{.data.password}" | base64 --decode
+	
 clean:
-	./scripts/clean.sh
+	helm repo remove gitlab
+	kubectl delete namespace gitlab
+	k3d cluster delete mycluster
 
 help:
 	@printf "%-20s: %s\n" "make" "setup the project."
