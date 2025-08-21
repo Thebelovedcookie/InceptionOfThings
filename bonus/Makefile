@@ -23,6 +23,8 @@ help:
 	@printf "%-20s: %s\n" "" "kubectl get svc/ingress/pods -n <namespace>"
 	@printf "%-20s: %s\n" "" "kubectl get logs -n gitlab <nom du pods>"
 	@printf "%-20s: %s\n" "" "kubectl apply -f <nom du fichier> -n <namespace>"
+	@printf "%-20s: %s\n" "" "kubectl rollout restart deployment coredns -n kube-system"
+
 	@printf "%-20s: %s\n" "check" "watch -n4 -d kubectl get pods -n gitlab"
 	
 .PHONY: all re clean get_password help
