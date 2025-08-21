@@ -1,5 +1,5 @@
 # Inception Of Things
-**Inception Of Things** is a Kubernetes‑based project exercise from the **42 school**, designed to demonstrate orchestration, CI/CD pipelines, and deployment automation using tools like **Vagrant**, **Helm**, **GitHub**, and **GitLab (CI/CD)**.
+**Inception Of Things** is a Kubernetes‑based project exercise from the **42 school**, designed to demonstrate orchestration, and deployment automation using tools like **Vagrant**, **Helm**, **GitHub**, and **GitLab (CI/CD)**.
 
 ---
 
