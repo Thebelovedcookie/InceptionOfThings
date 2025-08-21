@@ -15,6 +15,7 @@ help:
 	@printf "%-20s: %s\n" "re" "clean, and setup the project"
 	@printf "%-20s: %s\n" "get_password" "generate the ArgoCD password"
 	@printf "%-20s: %s\n" "" "kubectl edit configmap coredns -n kube-system -o yaml"
+	@printf "%-20s: %s\n" "" "kubectl rollout restart deployment coredns -n kube-system"
 	@printf "%-20s: %s\n" "clean" "delete the K3D cluster"
 
 .PHONY: all re clean get_password help
